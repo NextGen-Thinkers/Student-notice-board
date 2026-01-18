@@ -1,0 +1,25 @@
+body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; background: #76a0de; }
+.header-bar { background: #444; color: rgb(201, 150, 150); padding: 20px; text-align: center; font-size: 24px; font-weight: bold; }
+.container { padding: 20px; }
+.card { background: rgb(214, 254, 226); max-width: 450px; margin: 50px auto; padding: 30px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); text-align: center; }
+
+input, select, textarea { width: 90%; padding: 10px; margin: 10px 0; border: 1px solid #d4aee9; border-radius: 4px; }
+button { width: 95%; padding: 12px; margin: 5px 0; border: none; border-radius: 4px; color: white; cursor: pointer; font-weight: bold; }
+
+/* Sidebar Layout */
+.dashboard-layout { display: flex; gap: 20px; background: white; min-height: 80vh; border-radius: 8px; overflow: hidden; }
+.sidebar { width: 250px; border-right: 2px solid #eee; padding: 20px; background: #fafafa; }
+.content-area { flex: 1; padding: 30px; }
+
+.profile-box { text-align: center; margin-bottom: 20px; border-bottom: 1px solid #ddd; padding-bottom: 10px; }
+.profile-box img { width: 100px; height: 100px; border-radius: 50%; border: 2px solid #ddd; object-fit: cover; }
+
+/* Button Palette */
+.btn-blue { background: #007bff; }s
+.btn-gray { background: #6c757d; }
+.btn-green { background: #28a745; }
+.btn-yellow { background: #ffc107; color: #333; }
+.btn-red { background: #dc3545; }
+
+.notice-card { border: 1px solid #ddd; padding: 15px; margin-bottom: 15px; border-radius: 5px; }
+.notice-card img { max-width: 200px; display: block; margin-top: 10px; }

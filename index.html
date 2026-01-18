@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Notice Board System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="header-bar">Online Notice Board System</div>
+
+    <div class="container">
+        <div id="auth-container">
+            <div id="login-page" class="card">
+                <h2>Login Form</h2>
+                <input type="email" id="login-email" placeholder="Email ID">
+                <input type="password" id="login-pass" placeholder="Password">
+                <button class="btn-blue" onclick="handleLogin()">Login</button>
+                <p><a href="#" onclick="showAuthPage('register-page')">Click here to register</a></p>
+            </div>
+
+            <div id="register-page" class="card" style="display:none;">
+                <h2>Registration Form</h2>
+                <input type="text" id="reg-fname" placeholder="First Name">
+                <input type="text" id="reg-lname" placeholder="Last Name">
+                <input type="email" id="reg-email" placeholder="Email ID">
+                <input type="password" id="reg-pass" placeholder="Password">
+                <select id="reg-class">
+                    <option value="">Select Class</option>
+                    <option>1st Year</option><option>2nd Year</option>
+                    <option>3rd Year</option><option>4th Year</option>
+                </select>
+                <select id="reg-section">
+                    <option value="">Select Section</option>
+                    <option>A</option><option>B</option><option>C</option><option>E</option><option>F</option>
+                </select>
+                <button class="btn-blue" onclick="handleRegister()">Register</button>
+                <p><a href="#" onclick="showAuthPage('login-page')">Back to Login</a></p>
+            </div>
+        </div>
+
+        <div id="main-dashboard" style="display:none;" class="dashboard-layout">
+            <div class="sidebar">
+                <div class="profile-box">
+                    <img id="display-profile-pic" src="https://via.placeholder.com/100" alt="Profile">
+                    <p id="welcome-msg"></p>
+                </div>
+                
+                <div id="menu-options">
+                    <button class="btn-blue" onclick="showContent('edit-profile-page')">Edit profile</button>
+                    
+                    <div id="admin-controls" style="display:none;">
+                        <button class="btn-gray" onclick="showContent('create-notice-page')">Create a Notice</button>
+                        <button class="btn-green" onclick="showContent('view-notice-page')">View all Notice</button>
+                        <button class="btn-yellow" onclick="showContent('comments-page')">View Replies</button>
+                        <button class="btn-red" onclick="adminDeleteAll()">Delete all</button>
+                    </div>
+
+                    <div id="user-controls" style="display:none;">
+                        <button class="btn-green" onclick="showContent('view-notice-page')">View Notice</button>
+                        <button class="btn-yellow" onclick="showContent('comments-page')">Comments</button>
+                    </div>
+
+                    <button class="btn-red" onclick="logout()">Logout</button>
+                </div>
+            </div>
+
+            <div class="content-area">
+                <div id="edit-profile-page" class="sub-page" style="display:none;">
+                    <h3>Edit Profile</h3>
+                    <label>Profile Photo:</label>
+                    <input type="file" id="edit-pic-input" accept="image/*">
+                    <input type="text" id="edit-fname" placeholder="First Name">
+                    <input type="text" id="edit-lname" placeholder="Last Name">
+                    <input type="email" id="edit-email" readonly>
+                    <input type="password" id="edit-pass" placeholder="New Password">
+                    <button class="btn-blue" onclick="updateProfile()">Update</button>
+                </div>
+
+                <div id="create-notice-page" class="sub-page" style="display:none;">
+                    <h3>Create Notice</h3>
+                    <select id="notice-target">
+                        <option>1st Year</option><option>2nd Year</option>
+                        <option>3rd Year</option><option>4th Year</option>
+                    </select>
+                    <input type="text" id="notice-subject" placeholder="Subject">
+                    <textarea id="notice-text" placeholder="Important Notice"></textarea>
+                    <label>Upload Photo (Optional):</label>
+                    <input type="file" id="notice-img-input" accept="image/*">
+                    <button class="btn-blue" onclick="postNotice()">Post Notice</button>
+                </div>
+
+                <div id="view-notice-page" class="sub-page" style="display:none;">
+                    <h3>All Notices</h3>
+                    <div id="notice-display-list"></div>
+                </div>
+
+                <div id="comments-page" class="sub-page" style="display:none;">
+                    <h3>Comments Section</h3>
+                    <div id="comment-display"></div>
+                    <hr>
+                    <textarea id="new-comment" placeholder="Drop your opinion..."></textarea>
+                    <button class="btn-blue" onclick="postComment()">Post Comment</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
